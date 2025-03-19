@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj655gup2ec3r"]
+
+[ext_resource type="Script" path="res://Scripts/Professor.gd" id="1_cwp6t"]
+[ext_resource type="Texture2D" uid="uid://630ham8ue5mq" path="res://icon.svg" id="2_uudb2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bwak2"]
+radius = 54.0
+height = 174.0
+
+[node name="Professor" type="CharacterBody2D"]
+script = ExtResource("1_cwp6t")
+
+[node name="Stats" type="Node" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(4, 24)
+shape = SubResource("CapsuleShape2D_bwak2")
+one_way_collision_margin = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(3, 23)
+scale = Vector2(0.621094, 1.13281)
+texture = ExtResource("2_uudb2")

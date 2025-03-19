@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqn2ywff5logx"]
+
+[ext_resource type="Script" path="res://Scripts/ConferencePanel.gd" id="1_ae4pg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2443"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g43un"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fswix"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3a0g"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kjaa"]
+bg_color = Color(0.904712, 0.722243, 0.017771, 1)
+
+[node name="ConferencePanel" type="Control"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ae4pg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(165, 0)
+layout_mode = 0
+offset_right = 288.0
+offset_bottom = 278.0
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_j2443")
+text = "Conference Selection"
+
+[node name="RegionSelection" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_g43un")
+
+[node name="TierSelection" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_fswix")
+
+[node name="AttendButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_j3a0g")
+text = "ATTEND"
+
+[node name="ResultsLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0kjaa")
+text = "Inspiration +"
