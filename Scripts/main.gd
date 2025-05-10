@@ -1,32 +1,32 @@
-extends Node2D 
+extends Node2D
 
-var hud  # Declare HUD as a global variable
+@onready var lab_container = $LabContainer
+@onready var conference_container = $ConferenceContainer
+@onready var switch_button = $Control/SwitchButton
+
+var lab_scene = preload("res://Scenes/Lab.tscn")
+var conference_scene = preload("res://Scenes/Conference.tscn")
+
+var current_scene = null
 
 func _ready():
-	# Load Background FIRST so other elements appear on top
-	var background = load("res://Scenes/Background.tscn").instantiate()
-	add_child(background)
+	switch_button.pressed.connect(_on_switch_pressed)
+	_show_conference()
 
-	# Load Lab
-	var lab = load("res://Scenes/Lab.tscn").instantiate()
-	add_child(lab)
+func _on_switch_pressed():
+	if current_scene.name == "Conference":
+		_show_lab()
+	else:
+		_show_conference()
 
-	# Load Professor
-	var professor = load("res://Scenes/Professor.tscn").instantiate()
-	add_child(professor)
+func _show_conference():
+	lab_container.get_children().map(func(c): c.queue_free())
+	current_scene = conference_scene.instantiate()
+	conference_container.add_child(current_scene)
+	switch_button.text = "Go to Lab"
 
-	# DEBUG: Print to check if loaded
-	print("Lab loaded:", lab)
-	print("Professor loaded:", professor)
-
-	# Load Conference Panel
-	var conference_panel = load("res://Scenes/ConferencePanel.tscn").instantiate()
-	$UI.add_child(conference_panel)
-
-	# Load HUD
-	hud = load("res://Scenes/HUD.tscn").instantiate()
-	$UI.add_child(hud)
-
-	# Connect HUD to Professor
-	professor.hud = hud
-	professor.update_hud()
+func _show_lab():
+	conference_container.get_children().map(func(c): c.queue_free())
+	current_scene = lab_scene.instantiate()
+	lab_container.add_child(current_scene)
+	switch_button.text = "Go to Conference"

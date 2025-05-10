@@ -1,38 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://rc21i468bsxs"]
+[gd_scene load_steps=4 format=3 uid="uid://dwg53pm00c6lm"]
 
-[ext_resource type="PackedScene" uid="uid://ct15v4juk1a4h" path="res://Scenes/Student.tscn" id="1_2ajyv"]
-[ext_resource type="Script" path="res://Scripts/Lab.gd" id="1_c4oi5"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fomx"]
-bg_color = Color(0.843635, 0.511808, 5.77569e-07, 1)
+[ext_resource type="Script" path="res://Scripts/Lab.gd" id="1_x2y1w"]
+[ext_resource type="PackedScene" uid="uid://rr106co5ta0o" path="res://Scenes/DeskSlot.tscn" id="2_10t47"]
+[ext_resource type="PackedScene" uid="uid://rc21i468bsxs" path="res://Scenes/Staff.tscn" id="3_iwj13"]
 
 [node name="Lab" type="Node2D"]
-script = ExtResource("1_c4oi5")
+script = ExtResource("1_x2y1w")
 
-[node name="Students" type="VBoxContainer" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 946.0
+[node name="Background" type="ColorRect" parent="."]
 offset_right = 1151.0
-offset_bottom = 639.0
-grow_horizontal = 0
-theme_override_constants/separation = 35
+offset_bottom = 647.0
+color = Color(0.0041855, 2.25793e-05, 0.173876, 1)
 
-[node name="Studen1t" parent="Students" instance=ExtResource("1_2ajyv")]
+[node name="DeskContainer" type="GridContainer" parent="."]
+offset_top = 80.0
+offset_right = 200.0
+offset_bottom = 432.0
+
+[node name="DeskSlot" parent="DeskContainer" instance=ExtResource("2_10t47")]
 layout_mode = 2
 
-[node name="Studen2t2" parent="Students" instance=ExtResource("1_2ajyv")]
+[node name="PlaceholderLabel" type="Label" parent="DeskContainer/DeskSlot"]
 layout_mode = 2
 
-[node name="Studen3t3" parent="Students" instance=ExtResource("1_2ajyv")]
+[node name="DeskSlot2" parent="DeskContainer" instance=ExtResource("2_10t47")]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Students"]
+[node name="PlaceholderLabel" type="Label" parent="DeskContainer/DeskSlot2"]
 layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxFlat_7fomx")
-text = "+"
+text = "
+"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MoneyLabel" type="Label" parent="CanvasLayer"]
+offset_left = 393.0
+offset_right = 433.0
+offset_bottom = 23.0
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer"]
+offset_left = 563.0
+offset_top = 1.0
+offset_right = 603.0
+offset_bottom = 24.0
+
+[node name="Staff" parent="." instance=ExtResource("3_iwj13")]

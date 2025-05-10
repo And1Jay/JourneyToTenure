@@ -4,15 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://6ylaanvnxg0k" path="res://Assets/Portraits/POTRAIT.png" id="2_lfj36"]
 
 [node name="Student" type="Control"]
-custom_minimum_size = Vector2(150, 155)
+custom_minimum_size = Vector2(123, 92)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 205.0
-offset_bottom = 158.0
+offset_right = 123.0
+offset_bottom = 92.0
 script = ExtResource("1_jk36m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(129, 79)
+position = Vector2(77, 46)
+scale = Vector2(0.577419, 0.563291)
 texture = ExtResource("2_lfj36")
 region_enabled = true
 region_rect = Rect2(10, 12, 155, 158)

@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://rc21i468bsxs"]
+
+[ext_resource type="PackedScene" uid="uid://ct15v4juk1a4h" path="res://Scenes/Student.tscn" id="1_2ajyv"]
+[ext_resource type="Script" path="res://Scripts/Staff.gd" id="1_c4oi5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fomx"]
+bg_color = Color(0.843635, 0.511808, 5.77569e-07, 1)
+
+[node name="Staff" type="Node2D"]
+script = ExtResource("1_c4oi5")
+
+[node name="Students" type="VBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1028.0
+offset_right = 1151.0
+offset_bottom = 450.0
+grow_horizontal = 0
+theme_override_constants/separation = 35
+
+[node name="Studen1t" parent="Students" instance=ExtResource("1_2ajyv")]
+layout_mode = 2
+
+[node name="Studen2t2" parent="Students" instance=ExtResource("1_2ajyv")]
+layout_mode = 2
+
+[node name="Studen3t3" parent="Students" instance=ExtResource("1_2ajyv")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Students"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_7fomx")
+text = "+"
