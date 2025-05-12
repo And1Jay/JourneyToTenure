@@ -13,6 +13,14 @@ func _ready():
 	switch_button.pressed.connect(_on_switch_pressed)
 	_show_conference()
 
+	if !GameState.hud:
+		var hud = load("res://Scenes/GlobalHUD.tscn").instantiate()
+		GameState.hud = hud
+		GameState.start_timer()
+		add_child(hud)
+	else:
+		add_child(GameState.hud)  # Re-attach it if coming back to main
+
 func _on_switch_pressed():
 	if current_scene.name == "Conference":
 		_show_lab()

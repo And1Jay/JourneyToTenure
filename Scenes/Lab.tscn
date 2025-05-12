@@ -31,17 +31,4 @@ layout_mode = 2
 text = "
 "
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="MoneyLabel" type="Label" parent="CanvasLayer"]
-offset_left = 393.0
-offset_right = 433.0
-offset_bottom = 23.0
-
-[node name="TimeLabel" type="Label" parent="CanvasLayer"]
-offset_left = 563.0
-offset_top = 1.0
-offset_right = 603.0
-offset_bottom = 24.0
-
 [node name="Staff" parent="." instance=ExtResource("3_iwj13")]

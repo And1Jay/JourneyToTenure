@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cieudeqcn2kfn"]
+
+[ext_resource type="Script" path="res://Scripts/GlobalHUD.gd" id="1_irafw"]
+
+[node name="GlobalHUD" type="CanvasLayer"]
+script = ExtResource("1_irafw")
+
+[node name="MoneyLabel" type="Label" parent="."]
+offset_left = 427.0
+offset_right = 480.0
+offset_bottom = 23.0
+text = "Money"
+
+[node name="TimeLabel" type="Label" parent="."]
+offset_left = 606.0
+offset_right = 646.0
+offset_bottom = 23.0
+text = "Time"
